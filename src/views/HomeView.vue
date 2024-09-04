@@ -21,6 +21,13 @@ const onItemClick = () => {
 </script>
 
 <template>
+  <q-toolbar class="bg-red-10 text-white">
+    <q-btn flat round dense icon="assignment_ind" />
+    <q-toolbar-title>Quasar Demo</q-toolbar-title>
+    <q-btn flat round dense icon="apps" class="q-mr-xs" />
+    <q-btn flat round dense icon="more_vert" />
+  </q-toolbar>
+
   <q-toggle v-model="value" color="red" label="On Right" keep-color /><br />
   <q-toggle v-model="first" icon="mail" color="green" /><br />
   <q-toggle v-model="third" checked-icon="check" color="green" unchecked-icon="clear" /><br />
