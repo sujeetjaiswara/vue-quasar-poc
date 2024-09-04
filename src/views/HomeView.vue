@@ -1,10 +1,23 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const step = ref({
+  min: 10,
+  max: 20
+})
+
+const model = ref({ from: '2020/07/08', to: '2020/07/17' })
+
 const alert = ref(false)
 const value = ref(false)
 const first = ref(false)
 const third = ref(false)
+const text = ref('')
+const knobValue = ref(80)
+
+const onItemClick = () => {
+  console.log('ok')
+}
 </script>
 
 <template>
@@ -12,10 +25,14 @@ const third = ref(false)
   <q-toggle v-model="first" icon="mail" color="green" /><br />
   <q-toggle v-model="third" checked-icon="check" color="green" unchecked-icon="clear" /><br />
 
+  <q-knob show-value class="text-red q-ma-md" v-model="knobValue" size="50px" color="red" />
+
   <div class="q-pa-md q-gutter-sm">
     <br />
 
     <div style="display: flex; flex-direction: column; margin-bottom: 6px; width: 26rem">
+      <q-range v-model="step" :min="0" :max="45" :step="5" label color="deep-orange" />
+      <q-date v-model="model" range color="blue" />
       <q-input v-model="text" label="Standard" />
       <q-input v-model="text" label="Autogrow" autogrow />
       <q-input v-model="text" label="Autogrow" filled />
